@@ -1,0 +1,3 @@
+rootProject.name = "IdentifyCard"
+include ':app'
+include ':id-formatter-library'
