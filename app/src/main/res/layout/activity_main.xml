@@ -8,11 +8,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
+    <me.bytebeats.idcard.formatter.IdentifyCardEditText
         android:id="@+id/id_card_editor"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
-        android:inputType="text"
+        android:inputType="numberSigned"
+        android:digits="0123456789X"
+        app:splitter="pound"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="18 Id Card Number" />
@@ -22,6 +24,26 @@
         android:id="@+id/btn_generate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/id_card_editor_2"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:inputType="numberSigned"
+        android:digits="0123456789X"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="18 Id Card Number" />
+
+    <me.bytebeats.idcard.formatter.IdentifyCardEditText
+        android:layout_marginTop="20dp"
+        android:id="@+id/id_card_editor_3"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        app:splitter="hyphen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="18 Id Card Number" />
 
     <Button
         android:text="Verify"
