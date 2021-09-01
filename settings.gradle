@@ -1,3 +1,6 @@
 rootProject.name = "IdentifyCard"
 include ':app'
-include ':id-formatter-library'
+include ':idcard-verifier'
+include ':idcard-generator'
+include ':idcard-base'
+include ':idcard-formatter'
