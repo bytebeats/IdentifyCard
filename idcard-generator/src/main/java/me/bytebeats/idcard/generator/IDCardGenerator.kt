@@ -15,10 +15,11 @@ import kotlin.random.Random
  */
 
 class IDCardGenerator private constructor() {
-    private val random: Random = Random(0)
+    private val random: Random
+        get() = Random(Date().time)
 
     fun generate(): String {
-        val provinceCode = PROVINCE_CODES[random.nextInt(PROVINCE_CODES.size)].toString()
+        val provinceCode = PROVINCE_CODES[random.nextInt(PROVINCE_CODES.size)]
         val cityCode = random.nextInt(1, 9999).toString().padStart(4, '0')
         val birthDay = SimpleDateFormat("yyyyMMdd").format(randomDate())
         val randomCode = random.nextInt(0, 999).toString().padStart(3, '0')
