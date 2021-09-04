@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import me.bytebeats.idcard.formatter.*
 import me.bytebeats.idcard.generator.IDCardGenerator
@@ -14,6 +15,9 @@ class MainActivity : AppCompatActivity() {
     private val editor3 by lazy { findViewById<IdentifyCardEditText>(R.id.id_card_editor_3) }
     private val generator by lazy { findViewById<Button>(R.id.btn_generate) }
     private val verifier by lazy { findViewById<Button>(R.id.btn_verify) }
+    private val verify1 by lazy { findViewById<TextView>(R.id.verify_1) }
+    private val verify2 by lazy { findViewById<TextView>(R.id.verify_2) }
+    private val verify3 by lazy { findViewById<TextView>(R.id.verify_3) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,23 +29,23 @@ class MainActivity : AppCompatActivity() {
         editor2.addTextChangedListener(IdentifyCardTextWatcher(editor2, Splitter.WHITESPACE).apply {
             onVerifyIdCardListener = object : OnVerifyIdCardListener {
                 override fun onFailure() {
-                    editor2.error = "Invalid"
+                    verify2.text = "Invalid"
                 }
 
                 override fun onSuccess(idCard: String) {
-                    editor2.error = idCard
+                    verify2.text = idCard
                 }
             }
         })
         verifier.setOnClickListener {
-            editor.error = verifyIdCard(editor.trimmedIdCard()).toString()
+            verify1.text = if (verifyIdCard(editor.trimmedIdCard())) "Valid" else "Invalid"
             editor3.verify(object : OnVerifyIdCardListener {
                 override fun onFailure() {
-                    editor3.error = "Invalid"
+                    verify3.text = "Invalid"
                 }
 
                 override fun onSuccess(idCard: String) {
-                    editor3.error = idCard
+                    verify3.text = idCard
                 }
             })
         }
