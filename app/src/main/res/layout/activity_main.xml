@@ -65,15 +65,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
+        android:layout_marginTop="20dp"
         android:layout_height="wrap_content">
 
         <me.bytebeats.idcard.formatter.IdentifyCardEditText
-            android:layout_marginTop="20dp"
             android:id="@+id/id_card_editor_3"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
             app:splitter="hyphen"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:hint="18 Id Card Number" />
 
